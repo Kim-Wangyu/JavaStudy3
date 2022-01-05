@@ -3,7 +3,26 @@ package com.google.s1.student;
 import java.util.Scanner;
 
 public class StudentUtil {
+	Scanner sc = new Scanner(System.in);
+//학생 객체를 생성하고 정보를 입력 받는 
+	public Student search(Student[] students) {
+		// 검색 할 학생의 번호를 입력
+		// 입력받은 번호와 일치하는 학생 찾아서 리턴
 
+		System.out.println("검색할 학생 번호 입력");
+		int selectNum = sc.nextInt();
+
+		Student student = null;
+
+		for (int i = 0; i < students.length; i++) {
+
+			if (selectNum == students[i].num) {
+				student = students[i];
+
+			}
+		}
+		return student;
+	}
 	
 	public Student[] makeStudents() {
 		//학생의 수를 입력 받음
@@ -16,6 +35,7 @@ public class StudentUtil {
 		System.out.println("학생수 입력");
 		int count=sc.nextInt();
 		Student [] students = new Student[count];
+		
 		for(int i=0;i<students.length;i++) {
 		Student student = new Student();
 		
